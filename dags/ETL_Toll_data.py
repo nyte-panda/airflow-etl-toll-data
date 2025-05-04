@@ -32,7 +32,7 @@ dag = DAG(
 
 #define tasks
 
-#first task
+#Task: Unzip Data
 
 unzip_data = BashOperator(
     task_id = 'unzip_data',
@@ -40,7 +40,7 @@ unzip_data = BashOperator(
     dag=dag,
 )
 
-#second task
+#Task: Extract Data from CSV
 
 extract_data_from_csv = BashOperator(
     task_id = 'extract_data_from_csv',
@@ -48,7 +48,7 @@ extract_data_from_csv = BashOperator(
     dag=dag,
 )
 
-#third task
+#Task: Extract Data from TSV
 
 extract_data_from_tsv = BashOperator(
     task_id = 'extract_data_from_tsv',
@@ -56,7 +56,7 @@ extract_data_from_tsv = BashOperator(
     dag=dag,
 )
 
-#fourth task
+#Task: Extract Data from Fixed-Width File
 
 extract_data_from_fixed_width = BashOperator(
     task_id = 'extract_data_from_fixed_width',
@@ -64,7 +64,7 @@ extract_data_from_fixed_width = BashOperator(
     dag=dag,
 )
 
-#fifth task
+#Task: Consolidate Extracted Data
 
 consolidate_data = BashOperator(
     task_id='consolidate_data',
@@ -77,7 +77,7 @@ consolidate_data = BashOperator(
     dag=dag,
 )
 
-#sixth task
+#Task: Transform Data
 
 transform = BashOperator(
     task_id='transform_data',
@@ -88,8 +88,6 @@ transform = BashOperator(
     dag=dag,
 )
 
-
-#seventh task
 
 #unzip_data >> extract_data_from_csv >> extract_data_from_tsv >> extract_data_from_fixed_width >> consolidate_data >> transform
 unzip_data >> extract_data_from_csv >> extract_data_from_tsv >> extract_data_from_fixed_width >> consolidate_data >> transform
